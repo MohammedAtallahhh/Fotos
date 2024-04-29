@@ -14,11 +14,11 @@ function Logo() {
         size: "lg",
       })}
     >
-      <SwitchCamera className="h-6 w-6 shrink-0 lg:hidden" />
+      <SwitchCamera className="lg:hidden w-6 h-6 shrink-0" />
       <p
         className={`font-semibold text-xl hidden lg:block ${calSans.className}`}
       >
-        Pixelgram
+        Fotos
       </p>
     </Link>
   );

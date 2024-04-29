@@ -18,23 +18,19 @@ async function Post({ post }: { post: PostWithExtras }) {
 
   return (
     <div className="flex flex-col space-y-2.5">
-      <div className="flex items-center justify-between px-3 sm:px-0">
-        <div className="flex space-x-3 items-center">
+      <div className="flex justify-between items-center px-3 sm:px-0">
+        <div className="flex items-center space-x-3">
           <UserAvatar user={post.user} />
           <div className="text-sm">
             <p className="space-x-1">
               <span className="font-semibold">{username}</span>
-              <span
-                className="font-medium text-neutral-500 dark:text-neutral-400
-                      text-xs
-                    "
-              >
+              <span className="font-medium text-neutral-500 text-xs dark:text-neutral-400">
                 •
               </span>
               <Timestamp createdAt={post.createdAt} />
             </p>
-            <p className="text-xs text-black dark:text-white font-medium">
-              Dubai, United Arab Emirates
+            <p className="font-medium text-black text-xs dark:text-white">
+              Menofia, Egypt
             </p>
           </div>
         </div>
@@ -42,7 +38,7 @@ async function Post({ post }: { post: PostWithExtras }) {
         <PostOptions post={post} userId={userId} />
       </div>
 
-      <Card className="relative h-[450px] w-full overflow-hidden rounded-none sm:rounded-md">
+      <Card className="relative rounded-none sm:rounded-md w-full h-[450px] overflow-hidden">
         <Image
           src={post.fileUrl}
           alt="Post Image"
@@ -54,7 +50,7 @@ async function Post({ post }: { post: PostWithExtras }) {
       <PostActions post={post} userId={userId} className="px-3 sm:px-0" />
 
       {post.caption && (
-        <div className="text-sm leading-none flex items-center space-x-2 font-medium px-3 sm:px-0">
+        <div className="flex items-center space-x-2 px-3 sm:px-0 font-medium text-sm leading-none">
           <Link href={`/dashboard/${username}`} className="font-bold">
             {username}
           </Link>
