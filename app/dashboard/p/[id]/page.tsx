@@ -6,12 +6,12 @@ import MorePosts from "@/components/MorePosts";
 
 function PostPage({ params: { id } }: { params: { id: string } }) {
   return (
-    <div>
+    <div className="py-16">
       <Suspense fallback={<SinglePostSkeleton />}>
         <SinglePost id={id} />
       </Suspense>
 
-      <Separator className="my-12 max-w-3xl lg:max-w-4xl mx-auto" />
+      <Separator className="mx-auto my-12 max-w-3xl lg:max-w-4xl" />
 
       <Suspense>
         <MorePosts postId={id} />

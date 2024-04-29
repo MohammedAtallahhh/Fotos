@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 
 function HomePageLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
+    <div className="py-16">
       <Header />
       {children}
     </div>

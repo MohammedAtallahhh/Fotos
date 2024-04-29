@@ -46,14 +46,30 @@ export const config = {
         return token;
       }
       if (!prismaUser.username) {
-        await prisma.user.update({
-          where: {
-            id: prismaUser.id,
-          },
-          data: {
-            username: prismaUser.name?.split(" ").join("").toLowerCase(),
-          },
-        });
+        try {
+          await prisma.user.update({
+            where: {
+              id: prismaUser.id,
+            },
+            data: {
+              username: prismaUser.name?.split(" ").join("").toLowerCase(),
+            },
+          });
+        } catch (err: any) {
+          if (err.code === "P2002") {
+            await prisma.user.update({
+              where: {
+                id: prismaUser.id,
+              },
+              data: {
+                username:
+                  prismaUser.name?.split(" ").join("").toLowerCase() +
+                  "_" +
+                  prismaUser.id.slice(0, 2),
+              },
+            });
+          }
+        }
       }
 
       return {

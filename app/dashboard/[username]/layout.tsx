@@ -44,7 +44,7 @@ async function ProfileLayout({ children, params: { username } }: Props) {
     notFound();
   }
   return (
-    <>
+    <div className="py-16">
       <ProfileHeader username={profile.username} />
       <div className="mx-auto max-w-4xl">
         <div className="flex gap-x-5 md:gap-x-10 px-4">
@@ -140,7 +140,7 @@ async function ProfileLayout({ children, params: { username } }: Props) {
 
         {children}
       </div>
-    </>
+    </div>
   );
 }
 

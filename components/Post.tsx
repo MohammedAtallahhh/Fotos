@@ -14,6 +14,8 @@ async function Post({ post }: { post: PostWithExtras }) {
   const userId = session?.user?.id;
   const username = post.user.username;
 
+  console.log({ post });
+
   if (!session?.user) return null;
 
   return (
@@ -23,7 +25,9 @@ async function Post({ post }: { post: PostWithExtras }) {
           <UserAvatar user={post.user} />
           <div className="text-sm">
             <p className="space-x-1">
-              <span className="font-semibold">{username}</span>
+              <Link href={`/dashboard/${username}`} className="font-semibold">
+                {username}
+              </Link>
               <span className="font-medium text-neutral-500 text-xs dark:text-neutral-400">
                 •
               </span>

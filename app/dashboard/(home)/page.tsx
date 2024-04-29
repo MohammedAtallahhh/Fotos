@@ -4,8 +4,8 @@ import { Suspense } from "react";
 
 function DashboardPage() {
   return (
-    <main className="flex w-full flex-grow">
-      <div className="flex flex-col flex-1 gap-y-8 max-w-lg mx-auto pb-20">
+    <main className="flex flex-grow w-full">
+      <div className="flex flex-col flex-1 gap-y-8 mx-auto pb-20 max-w-lg">
         <Suspense fallback={<PostsSkeleton />}>
           <Posts />
         </Suspense>
